@@ -1,0 +1,73 @@
+// DEPENDENCIES
+@import "bootstrap";
+
+// MIXINS
+@mixin break($breakpoint){
+	@media (min-width: $breakpoint){
+		@content;
+	}
+}
+
+@mixin smooth-hover(){
+	transition : color 0.4s ease-in-out, background 0.4s ease-in-out;
+}
+
+
+// VARIABLES AND BASE STYLES
+
+$color-bottle: #18A999;
+$color-black: #222;
+$color-white: #fff;
+
+$font-primary: 'Crimson Text', serif;
+$font-headings: 'Ubuntu', sans-serif;
+
+html {
+	font-size: 62.5%;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: $font-headings;
+}
+
+h1{
+	font-size: 3rem;
+}
+
+h2{
+
+}
+
+h3, h4, h5{
+
+}
+
+// STYLES
+
+body{
+	font: 400 2rem $font-primary;
+	min-height: calc(100vh - 40px);
+	margin-bottom: 40px;
+}
+
+.reading-buttons{
+	margin-top: 20px;
+	a.btn{
+		@include smooth-hover();
+		font-size: 2rem;
+		margin-right: 20px;
+		&:hover{
+			background: $brand-success;
+			color: $color-white;
+			border-color: transparent;
+		}
+	}
+}
+
+footer{
+	font-size: 1.7rem;
+	width: 100%;
+	position: absolute;
+	bottom: 40px;
+}
+

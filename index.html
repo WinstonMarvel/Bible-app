@@ -1,0 +1,128 @@
+<!doctype html>
+<!--[if lt IE 7]>      
+	<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         
+	<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         
+	<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+	<html class="no-js" lang=""> 
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>The Bible App</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<style>
+	body {
+		padding-top: 50px;
+		padding-bottom: 20px;
+	}
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700|Ubuntu:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">The Bible App</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<form class="navbar-form navbar-right" role="form">
+					<div class="form-group">
+						<!-- <input type="text" placeholder="Email" class="form-control"> -->
+						<select id="book" class="form-control">
+							<option value="genesis">Genesis</option>
+							<option value="jude">Jude</option>
+							<option value="Revelation">Revelation</option>
+							<option value="james">James</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select id="chapter" class="form-control">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="23">23</option>
+						</select>	
+					</div>
+					<button type="submit" class="btn btn-success">Read</button>
+				</form>
+			</div><!--/.navbar-collapse -->
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Psalm 53</h2>
+				<p>The Lord is my shepherd, I lack nothing.
+					2     He makes me lie down in green pastures,
+					he leads me beside quiet waters,
+					3     he refreshes my soul.
+					He guides me along the right paths
+					for his name’s sake.
+					4 Even though I walk
+					through the darkest valley,[a]
+					I will fear no evil,
+					for you are with me;
+					your rod and your staff,
+					they comfort me.
+
+					5 You prepare a table before me
+					in the presence of my enemies.
+					You anoint my head with oil;
+					my cup overflows.
+					6 Surely your goodness and love will follow me
+					all the days of my life,
+					and I will dwell in the house of the Lord
+					forever.
+				</p>
+				<div class="reading-buttons">
+					<a id="#prev" class="btn btn-default" href="#" role="button">Previous &laquo;</a>
+					<a id="#next" class="btn btn-default" href="#" role="button">Next &raquo;</a>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<footer>
+		<div class="container">
+			<hr>
+			<p>&copy; Winston Jude</p>
+		</div>
+	</footer>
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+<script src="javascripts/bootstrap.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+	// (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+	// 	function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+	// e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+	// e.src='//www.google-analytics.com/analytics.js';
+	// r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+	// ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+</script>
+</body>
+</html>
