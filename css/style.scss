@@ -50,6 +50,26 @@ body{
 	margin-bottom: 40px;
 }
 
+.navbar{
+    overflow-y: hidden;
+	.form-control{
+		font-size: 1.8rem;
+		@include break($screen-md){
+			height: unset;
+		}
+	}
+	#read{
+		font-size: 1.8rem;
+	}
+}
+
+article#content{
+	@include break($screen-md){
+		padding-top: 2%;
+		padding-bottom: 2%;
+	}
+}
+
 .reading-buttons{
 	margin-top: 20px;
 	a.btn{
@@ -63,6 +83,8 @@ body{
 		}
 	}
 }
+
+
 
 footer{
 	font-size: 1.7rem;

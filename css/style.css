@@ -5018,6 +5018,21 @@ body {
   min-height: calc(100vh - 40px);
   margin-bottom: 40px; }
 
+.navbar {
+  overflow-y: hidden; }
+  .navbar .form-control {
+    font-size: 1.8rem; }
+    @media (min-width: 992px) {
+      .navbar .form-control {
+        height: unset; } }
+  .navbar #read {
+    font-size: 1.8rem; }
+
+@media (min-width: 992px) {
+  article#content {
+    padding-top: 2%;
+    padding-bottom: 2%; } }
+
 .reading-buttons {
   margin-top: 20px; }
   .reading-buttons a.btn {

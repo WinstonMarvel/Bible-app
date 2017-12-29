@@ -17,6 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<style>
+
 	body {
 		padding-top: 50px;
 		padding-bottom: 20px;
@@ -24,7 +25,7 @@
 	</style>
 	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700|Ubuntu:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="javascripts/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> 
 </head>
 
 <body>
@@ -61,7 +62,7 @@
 							<option value="23">23</option>
 						</select>	
 					</div>
-					<button type="submit" class="btn btn-success">Read</button>
+					<button id="read" type="submit" class="btn btn-success">Read</button>
 				</form>
 			</div><!--/.navbar-collapse -->
 		</div>
@@ -69,7 +70,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+			<article id="content" class="col-md-12">
 				<h2>Psalm 53</h2>
 				<p>The Lord is my shepherd, I lack nothing.
 					2     He makes me lie down in green pastures,
@@ -94,10 +95,10 @@
 					forever.
 				</p>
 				<div class="reading-buttons">
-					<a id="#prev" class="btn btn-default" href="#" role="button">Previous &laquo;</a>
-					<a id="#next" class="btn btn-default" href="#" role="button">Next &raquo;</a>
+					<a id="prev" class="btn btn-default" href="#" role="button">&laquo; Previous</a>
+					<a id="next" class="btn btn-default" href="#" role="button">Next &raquo;</a>
 				</div>
-			</div>
+			</article>
 		</div>
 	</div>	
 	
@@ -109,12 +110,11 @@
 	</footer>
 
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="javascripts/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-<script src="javascripts/bootstrap.min.js"></script>
+<script src="javascripts/vendor/bootstrap.min.js"></script>
 
-<script src="js/main.js"></script>
-
+<script src="javascripts/app.js"></script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
 	// (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
