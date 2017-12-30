@@ -38,22 +38,33 @@ function MyBible(version){
 			url:"/Bible/bible-assets/MSG.json",	
 			success: function(responseTxt){
 		 		mybibleContent = responseTxt; //set content to JSON data
-		 		setPage(responseTxt);
+		 		_this.updateView(responseTxt);
 		}});
 	}
 
 	this.setCurrentBook = function (bookname){
 		currentBook = bookname;
 	}
+
+	this.updateView = function(){
+		var versesToDisplay = mybibleContent[currentBook][currentChapter];
+		console.log("verseToDisplay: ",versesToDisplay[1]);
+		console.log(typeof(versesToDisplay));
+		console.log(Array.isArray(versesToDisplay));
+		var verseHTML = "";
+		for(i in versesToDisplay){
+			console.log(i, " : ", versesToDisplay[i]);
+			verseHTML += "<span class='verse-number'> " + i + " </span>" + versesToDisplay[i];
+		}
+		console.log(verseHTML);
+		return verseHTML;
+		//Convert JSON Object to string and print to screen
+			// 1.	Get Bookname and insert into h2 
+			// 2.	Get Chapter number and append to h2
+			// 3. 	Get Verses and print with verse number in a span next to it.
+	}
 }
 
-
-function setPage(passageObject){
-	//Convert JSON Object to string and print to screen
-		// 1.	Get Bookname and insert into h2 
-		// 2.	Get Chapter number and append to h2
-		// 3. 	Get Verses and print with verse number in a span next to it.
-}
 
 var bible = new MyBible("MSG");
 bible.getBible();
