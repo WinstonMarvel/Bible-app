@@ -84,6 +84,7 @@ article#content{
 }
 
 .reading-buttons{
+	@include clearfix;
 	margin-top: 20px;
 	a.btn{
 		@include smooth-hover();
@@ -95,10 +96,16 @@ article#content{
 			border-color: transparent;
 		}
 	}
+	#prev{
+		float: left;
+	}
+	#next{
+		float: right;
+	}
 }
 
 
-
+ 
 footer{
 	max-height: 70px;
 	font-size: 1.7rem;

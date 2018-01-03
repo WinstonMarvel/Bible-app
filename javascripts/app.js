@@ -8,6 +8,10 @@
 	// Add listensers to Previous and Next Chapter buttons
 	// Change the passages
 
+//Bugs and Fixes
+	// Identify Last and first Chapter and disallow next/previous chapter
+	// Disable previous and next buttons for First and Last  Chapters
+	
 
 function MyBible(version){
 	console.log("Creating Bible");
@@ -19,15 +23,22 @@ function MyBible(version){
 
 	this.nextChapter = function(){
 		currentChapter += 1;
+		_this.updateView();
 	}
 
 	this.previousChapter = function(){
 		currentChapter -= 1;
+		_this.updateView();
 	}
 
 	this.getCurrentChapter = function(){
 		return currentChapter;
 	}
+
+	this.getCurrentBook = function(){
+		return currentBook;
+	}
+
 
 	this.setCurrentChapter = function (chaptername){
 		currentChapter = chaptername;
@@ -38,7 +49,7 @@ function MyBible(version){
 			url:"/Bible/bible-assets/MSG.json",	
 			success: function(responseTxt){
 		 		mybibleContent = responseTxt; //set content to JSON data
-		 		_this.updateView(responseTxt);
+		 		_this.updateView();
 		}});
 	}
 
@@ -57,7 +68,9 @@ function MyBible(version){
 			verseHTML += "<span class='verse-number'> " + i + " </span>" + versesToDisplay[i];
 		}
 		console.log(verseHTML);
-		return verseHTML;
+		document.querySelector("#title .bookname").innerHTML = currentBook;
+		document.querySelector("#title .chapter").innerHTML = currentChapter;
+		document.querySelector("#passage").innerHTML = verseHTML;
 		//Convert JSON Object to string and print to screen
 			// 1.	Get Bookname and insert into h2 
 			// 2.	Get Chapter number and append to h2
@@ -72,3 +85,32 @@ bible.getBible();
 
 
 
+
+
+
+//Create Handlers
+// var next = document.querySelector("#next");
+// var prev = document.querySelector("#prev");
+// prev.onclick = bible.previousChapter;
+
+$("#next").on("click",function(){
+	$("html, body").animate({scrollTop:0},900);
+	bible.nextChapter();
+	
+});
+
+
+$("#prev").on("click",function(){
+	$("html, body").animate({scrollTop:0},900);
+	bible.previousChapter();
+});
+
+
+$("#book").on("change", function(){
+	bible.setCurrentBook($("#book").val());
+});
+
+$("#read").on("click", function(e){
+	e.preventDefault();
+	bible.updateView();
+});

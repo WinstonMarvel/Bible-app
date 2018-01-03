@@ -5039,6 +5039,11 @@ article#content span.verse-number {
 
 .reading-buttons {
   margin-top: 20px; }
+  .reading-buttons:before, .reading-buttons:after {
+    content: " ";
+    display: table; }
+  .reading-buttons:after {
+    clear: both; }
   .reading-buttons a.btn {
     transition: color 0.4s ease-in-out, background 0.4s ease-in-out;
     font-size: 2rem;
@@ -5047,6 +5052,10 @@ article#content span.verse-number {
       background: #5cb85c;
       color: #fff;
       border-color: transparent; }
+  .reading-buttons #prev {
+    float: left; }
+  .reading-buttons #next {
+    float: right; }
 
 footer {
   max-height: 70px;
