@@ -39,6 +39,20 @@ function MyBible(version){
 		return currentBook;
 	}
 
+	this.getBookList = function (){
+
+	}
+
+	this.getNumberofChapters = function (){
+		count = 0;
+		for(var chapter in mybibleContent[currentBook]){
+			if(mybibleContent[currentBook].hasOwnProperty(chapter)){
+				console.log(chapter);
+				count++;    
+			}
+		}
+		return count;
+	}
 
 	this.setCurrentChapter = function (chaptername){
 		currentChapter = chaptername;
@@ -51,6 +65,7 @@ function MyBible(version){
 		 		mybibleContent = responseTxt; //set content to JSON data
 		 		_this.updateView();
 		}});
+		return mybibleContent; 
 	}
 
 	this.setCurrentBook = function (bookname){
@@ -68,9 +83,14 @@ function MyBible(version){
 			verseHTML += "<span class='verse-number'> " + i + " </span>" + versesToDisplay[i];
 		}
 		console.log(verseHTML);
-		document.querySelector("#title .bookname").innerHTML = currentBook;
-		document.querySelector("#title .chapter").innerHTML = currentChapter;
-		document.querySelector("#passage").innerHTML = verseHTML;
+		$("#title .bookname,#title .chapter,#passage").fadeOut(100, function(){
+			console.log("fadein");
+			$("#title .bookname").html(currentBook);
+			$("#title .chapter").html(currentChapter);
+			$("#passage").html(verseHTML);
+			$(this).fadeIn(100);
+		});
+		
 		//Convert JSON Object to string and print to screen
 			// 1.	Get Bookname and insert into h2 
 			// 2.	Get Chapter number and append to h2
@@ -79,8 +99,8 @@ function MyBible(version){
 }
 
 
-var bible = new MyBible("MSG");
-bible.getBible();
+var Bible = new MyBible("MSG");
+Bible.getBible();
 
 
 
@@ -91,26 +111,47 @@ bible.getBible();
 //Create Handlers
 // var next = document.querySelector("#next");
 // var prev = document.querySelector("#prev");
-// prev.onclick = bible.previousChapter;
+// prev.onclick = Bible.previousChapter;
 
 $("#next").on("click",function(){
 	$("html, body").animate({scrollTop:0},900);
-	bible.nextChapter();
+	Bible.nextChapter();
 	
 });
 
 
 $("#prev").on("click",function(){
 	$("html, body").animate({scrollTop:0},900);
-	bible.previousChapter();
+	Bible.previousChapter();
 });
 
 
 $("#book").on("change", function(){
-	bible.setCurrentBook($("#book").val());
+	Bible.setCurrentBook($("#book").val());
+	//Populate chapters
+	var numberOfChapters = Bible.getNumberofChapters();
+	var htmlString;
+	for(var i=1; i<=numberOfChapters;i++){
+		htmlString += "<option value=" + i + ">" +i + "</option>";
+	}
+	$("#chapter").html(htmlString);
+	$("#chapter").change();
+
 });
+
+$("#chapter").on("change", function(){
+	Bible.setCurrentChapter($(this).val());
+});
+
 
 $("#read").on("click", function(e){
 	e.preventDefault();
-	bible.updateView();
+	Bible.updateView();
+	if($(window).width() < 768){
+		$("button.navbar-toggle").click();
+	}
 });
+
+
+
+
