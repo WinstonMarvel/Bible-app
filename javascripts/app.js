@@ -90,7 +90,29 @@ function MyBible(version){
 			$("#passage").html(verseHTML);
 			$(this).fadeIn(100);
 		});
-		
+
+		if(mybibleContent[currentBook].hasOwnProperty(currentChapter+1)){
+			$("#next").show();
+			console.log("Next");
+			console.log(mybibleContent[currentBook+1]);
+		}
+		else{
+			$("#next").hide();
+			console.log("Next hide");
+			console.log(mybibleContent[currentBook+1]);
+
+		}
+		if(mybibleContent[currentBook].hasOwnProperty(currentChapter-1)){
+			$("#prev").show();
+			console.log("prev");
+			console.log(mybibleContent[currentBook-1]);
+		}
+		else{
+			$("#prev").hide();
+			console.log("prev hide");
+			console.log(mybibleContent[currentBook-1]);
+		}
+			
 		//Convert JSON Object to string and print to screen
 			// 1.	Get Bookname and insert into h2 
 			// 2.	Get Chapter number and append to h2
